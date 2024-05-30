@@ -1,0 +1,12 @@
+@extends('master')
+@section('body')
+    <section class="py-5 bg-secondary-subtle">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>This is home page</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
