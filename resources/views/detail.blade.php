@@ -1,13 +1,23 @@
 @extends('master')
 @section('title')
-    About Page
+    Detail Page
 @endsection
 @section('body')
     <section class="py-5 bg-secondary-subtle">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <h1>This is about page</h1>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="{{asset($product['image'])}}" alt="">
+                        <div class="card-img-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        <h1>{{$product['name']}}</h1>
+                        <h4>{{$product['price']}}</h4>
+                        <p>{{$product['description']}}</p>
+                    </div>
                 </div>
             </div>
         </div>

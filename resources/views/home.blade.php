@@ -14,7 +14,8 @@
                                 <h3>{{$product['name']}}</h3>
                                 <p>{{$product['price']}}</p>
                                 <hr>
-                                <a href="" class="btn btn-success">Read More</a>
+                                <a href="{{route('detail',['id'=>$product['id']])}}" class="btn btn-success">Read
+                                    More</a>
                             </div>
                         </div>
                     </div>

@@ -46,4 +46,13 @@ class Product extends Model
         return self::$products;
 
     }
+
+    public static function getProductById($id)
+    {
+        foreach (self::getProduct() as $item) {
+            if ($item['id'] == $id) {
+                return $item;
+            }
+        }
+    }
 }

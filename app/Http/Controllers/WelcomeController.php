@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class WelcomeController extends Controller
 {
-    public $products;
+    public $products, $product, $fullName;
 
     public function index()
     {
@@ -25,8 +25,15 @@ class WelcomeController extends Controller
         return view('contact');
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return ('detail');
+        $this->product = Product::getProductById($id);
+        return view('detail', ['product' => $this->product]);
+    }
+
+    public function makeFullName(Request $request)
+    {
+        $this->fullName = $request->first_name . ' ' . $request->last_name;
+        return back()->with('result', $this->fullName);
     }
 }
