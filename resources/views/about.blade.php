@@ -1,5 +1,7 @@
 @extends('master')
-
+@section('title')
+    About Page
+@endsection
 @section('body')
     <section class="py-5 bg-secondary-subtle">
         <div class="container">
