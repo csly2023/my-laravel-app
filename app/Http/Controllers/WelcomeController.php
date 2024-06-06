@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class WelcomeController extends Controller
 {
-    public $products, $product, $fullName;
+    public $products, $product, $fullName, $result;
 
     public function index()
     {
@@ -19,6 +19,7 @@ class WelcomeController extends Controller
     {
         return view('about');
     }
+
 
     public function contact()
     {
@@ -35,5 +36,25 @@ class WelcomeController extends Controller
     {
         $this->fullName = $request->first_name . ' ' . $request->last_name;
         return back()->with('result', $this->fullName);
+    }
+
+    public function calculator(Request $request)
+    {
+//        return $request;
+        if ($request->chose == "+") {
+            $this->result = $request->first_number + $request->last_number;
+        } elseif ($request->chose == "-") {
+            $this->result = $request->first_number - $request->last_number;
+        } elseif ($request->chose == "*") {
+            $this->result = $request->first_number * $request->last_number;
+        } elseif ($request->chose == "/") {
+            $this->result = $request->first_number / $request->last_number;
+        } elseif ($request->chose == "%") {
+            $this->result = $request->first_number % $request->last_number;
+        }
+
+        return back()->with('message', $this->result);
+
+
     }
 }
